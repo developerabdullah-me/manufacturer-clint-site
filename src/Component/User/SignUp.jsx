@@ -154,7 +154,7 @@ const SignUp = () => {
               </form>
             </div>
             <p>
-              New to Doctors Portal? <Link to="">Create new account</Link>
+              New to Doctors Portal? <Link className="text-red-500" to="/login">Create new account</Link>
             </p>
             <div class="divider">OR</div>
             <div className="mx-auto">
