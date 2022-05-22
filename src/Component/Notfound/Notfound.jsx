@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillHome } from "react-icons/ai";
+import Footer from '../Sheare/Footer/Footer';
 const Notfound = () => {
     return (
         <div>
@@ -11,6 +12,7 @@ const Notfound = () => {
                <Link className="btn mx-auto" to="/"><AiFillHome className='mr-1'/>Go To Home Page</Link>
                </div>
             </div>
+            <Footer/>
         </div>
     );
 };

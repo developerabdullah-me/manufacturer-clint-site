@@ -17,6 +17,7 @@ const Header = ({children}) => {
     <li><Link to='about'>About</Link></li>  
           <li><Link to='reviews'>Reviews</Link></li>
           <li><Link to='myBlog'>My Blog</Link></li>
+          <li><Link to='MyPortfolio'>My Portfolio</Link></li>
           <li>{user ? <button onClick={logout} className="btn btn-active btn-ghost">SignOut</button> :<Link to='login'>Login</Link>}</li>
   </>
     return (

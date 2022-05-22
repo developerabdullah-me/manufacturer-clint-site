@@ -8,7 +8,8 @@ import SignUp from './Component/User/SignUp';
 import Notfound from './Component/Notfound/Notfound';
 import About from './Component/About/About';
 import MyBlog from './Component/MyBlog/MyBlog';
-import Footer from './Component/Sheare/Footer/Footer';
+import MyPortfolio from './Component/MyPortfolio/MyPortfolio';
+
 
 function App() {
   return (
@@ -18,13 +19,14 @@ function App() {
        <Route path="/" element={<Home></Home>}></Route>
        <Route path="/about" element={<About></About>}></Route>
        <Route path="/myBlog" element={<MyBlog></MyBlog>}></Route>
+       <Route path="/MyPortfolio" element={<MyPortfolio/>}></Route>
        <Route path="/login" element={<Login></Login>}></Route>
        <Route path="/singUp" element={<SignUp></SignUp>}></Route>
        <Route path="*" element={<Notfound></Notfound>}></Route>
        
      </Routes>
      </Header>
-     <Footer></Footer>
+     
     </div>
   );
 }

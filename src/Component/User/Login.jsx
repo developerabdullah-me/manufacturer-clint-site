@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Footer from '../Sheare/Footer/Footer';
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [signInWithEmailAndPassword, user, loading, error] =
@@ -132,6 +133,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer/>
         </div>
     );
 };
