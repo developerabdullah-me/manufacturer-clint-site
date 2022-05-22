@@ -1,0 +1,35 @@
+.banner-background{
+    background-image: url(https://i.ibb.co/SdwMf8Y/Screenshot-174.png);
+     background-size:cover;
+     background-image: cover;
+     background-repeat: no-repeat;
+    height: 370px;
+     object-fit: cover;
+     background-image: center;
+}
+
+@media screen and (max-width: 576px) {
+    .banner-background{
+        background-image: url(https://i.ibb.co/SdwMf8Y/Screenshot-174.png);
+         background-size:cover;
+         background-image: cover;
+         background-repeat: no-repeat;
+           height: 150px;
+         object-fit: cover;
+         background-image: center;
+    }
+    .banner-background h1 {
+        margin-left: 39px;
+        /* text-align: center; */
+        padding-top: 14%;
+        font-weight: bold;
+       font-weight: 900;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 900px){
+    .serviceContainer{
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
