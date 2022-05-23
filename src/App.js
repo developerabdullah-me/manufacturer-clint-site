@@ -14,7 +14,10 @@ import MyProfile from './Component/Dashboard/MyProfile';
 import MyOrder from './Component/Dashboard/MyOrder';
 import AddedReview from './Component/Dashboard/AddedReview';
 import AddProduct from './Component/Dashboard/AddProduct';
-
+import ManageItems from './Component/ManageItems/ManageItems';
+import Parces from './Component/Purchase/Purchase';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -22,8 +25,10 @@ function App() {
      <Header>
      <Routes>
        <Route path="/" element={<Home></Home>}></Route>
+       <Route path="/purchase/:Id" element={<Parces></Parces>}></Route>
        <Route path="/about" element={<About></About>}></Route>
        <Route path="/myBlog" element={<MyBlog></MyBlog>}></Route>
+       <Route path="/manageItems" element={<ManageItems/>}></Route>
        <Route path="/MyPortfolio" element={<MyPortfolio/>}></Route>
        <Route path="/dashboard" element={<Dashboard/>}>
          <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
@@ -38,7 +43,7 @@ function App() {
        
      </Routes>
      </Header>
-     
+     <ToastContainer></ToastContainer>
     </div>
   );
 }

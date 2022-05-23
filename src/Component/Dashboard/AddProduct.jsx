@@ -53,7 +53,7 @@ const AddProduct = () => {
 
         }
         console.log(result);
-        // toast.success('Success',data)
+       toast.success('Success',data)
       });
   };
 
@@ -177,7 +177,7 @@ const AddProduct = () => {
                     placeholder="Quantity"
                     name="quantity"
                     className="input input-bordered w-full max-w-xs"
-                    {...register("quantity", {
+                    {...register(`quantity`, {
                       required: {
                         value: true,
                         message: "quantity is required",
@@ -281,6 +281,7 @@ const AddProduct = () => {
           </div>
         </div>
       </div>
+      {toast}
     </div>
   );
 };

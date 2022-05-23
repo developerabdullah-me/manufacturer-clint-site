@@ -13,6 +13,7 @@ const Header = ({children}) => {
   };
     const items=<>
     <li><Link to='/'>Home</Link></li>
+    <li><Link to='/manageItems'>ManageItems</Link></li>
     <li><Link to='/myBlog'>My Blog</Link></li>
     <li><Link to='about'>About</Link></li>  
           <li><Link to='reviews'>Reviews</Link></li>
