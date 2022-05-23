@@ -7,7 +7,7 @@ import linkedin from '../../sosial-logo/linkedin.png'
 const Footer = () => {
     return (
         <div>
-      <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+      <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded mt-14">
   <div className="grid grid-flow-col gap-4">
     <Link to='/About' className="link link-hover">About</Link> 
     <Link  to={`https://twitter.com/devabdullah_me`} className="link link-hover">Contact</Link> 

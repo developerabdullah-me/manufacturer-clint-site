@@ -9,6 +9,11 @@ import Notfound from './Component/Notfound/Notfound';
 import About from './Component/About/About';
 import MyBlog from './Component/MyBlog/MyBlog';
 import MyPortfolio from './Component/MyPortfolio/MyPortfolio';
+import Dashboard from './Component/Dashboard/Dashboard';
+import MyProfile from './Component/Dashboard/MyProfile';
+import MyOrder from './Component/Dashboard/MyOrder';
+import AddedReview from './Component/Dashboard/AddedReview';
+import AddProduct from './Component/Dashboard/AddProduct';
 
 
 function App() {
@@ -20,6 +25,13 @@ function App() {
        <Route path="/about" element={<About></About>}></Route>
        <Route path="/myBlog" element={<MyBlog></MyBlog>}></Route>
        <Route path="/MyPortfolio" element={<MyPortfolio/>}></Route>
+       <Route path="/dashboard" element={<Dashboard/>}>
+         <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
+         <Route path="myOrder" element={<MyOrder></MyOrder>}></Route>
+         <Route path="addedReview" element={<AddedReview/>}></Route>
+         <Route path="addProduct" element={<AddProduct/>}></Route>
+         
+       </Route>
        <Route path="/login" element={<Login></Login>}></Route>
        <Route path="/singUp" element={<SignUp></SignUp>}></Route>
        <Route path="*" element={<Notfound></Notfound>}></Route>

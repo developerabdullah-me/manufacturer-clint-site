@@ -84,7 +84,7 @@ const SignUp = () => {
   
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">email</span>
+                    <span className="label-text">Email</span>
                   </label>
                   <input
                     type="email"
