@@ -6,16 +6,16 @@ import "swiper/css/pagination";
 import "./OurSpecialty.css";
 import { Autoplay, Pagination } from "swiper";
 import 'swiper/css/autoplay'
+
 import UseProduct from "../../hooks/UseProduct";
 
 
-
 const OurSpecialty = () => {
-    const [products,setProducts]=UseProduct()
+    const [Products,setProducts]=UseProduct()
     return (
         <div className="mt-16 px-16">
              <h1 className="text-4xl text-center">Best Products</h1>
-             <p className="text-center py-1">This best product  in the year {(new Date().getFullYear())}</p>
+             <p className="text-center py-1">This product is top  in the year {(new Date().getFullYear())}</p>
           <div data-aos="fade-left">
       <Swiper
         slidesPerView={3}
@@ -32,18 +32,18 @@ const OurSpecialty = () => {
         }}
         className="mySwiper"
       >
-      {/* { 
-            products.slice(0,6).map(product =>  <SwiperSlide className="shadow-2xl mt-11 mb-10  hover:shadow-lg cursor-pointer" product={product._id}>
+      { 
+            Products.map(product =>  <SwiperSlide className="shadow-2xl mt-11 mb-10  hover:shadow-lg cursor-pointer" product={product._id}>
                
                <div className="pb-16">
-               <img className="w-96 h-96 "src={product.img} alt="" />
-               <p>{product.name}</p>
+               <img className="w-96 h-96" src={product.img} alt="" />
+               <p className="">{product.name}</p>
                <p>$ <small>{product.price}</small></p>
                 
                </div>
                 
                 </SwiperSlide>)
-            } */}
+            }
       </Swiper>
     </div>
         </div>
