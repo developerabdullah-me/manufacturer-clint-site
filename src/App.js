@@ -20,24 +20,29 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './Component/Sheare/RequireAuth/RequireAuth';
 import MyAddedItems from './Component/Dashboard/MyAddedItems';
+import UpdateProfile from './Component/Dashboard/UpdateProfile';
+import Allurer from './Component/Dashboard/Addmin/Allurer';
 
 function App() {
   return (
     <div>
      <Header>
      <Routes>
-       <Route path="/" element={<Home></Home>}></Route>
-       <Route path="/purchase/:Id" element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
-       <Route path="/about" element={<About></About>}></Route>
-       <Route path="/myBlog" element={<MyBlog></MyBlog>}></Route>
-       <Route path="/manageItems" element={<ManageItems/>}></Route>
-       <Route path="/MyPortfolio" element={<MyPortfolio/>}></Route>
-       <Route path="/dashboard" element={<Dashboard/>}>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/purchase/:Id" element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/myBlog" element={<MyBlog></MyBlog>}></Route>
+        <Route path="/manageItems" element={<ManageItems/>}></Route>
+        <Route path="/MyPortfolio" element={<MyPortfolio/>}></Route>
+         <Route path="/updateProfile" element={<UpdateProfile/>}></Route>
+         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
+
          <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
          <Route path="myOrder" element={<MyOrder></MyOrder>}></Route>
          <Route path="addedReview" element={<AddedReview/>}></Route>
          <Route path="addProduct" element={<AddProduct/>}></Route>
          <Route path="myAddedItems" element={<MyAddedItems/>}></Route>
+         <Route path="allUser" element={<Allurer></Allurer>}></Route>
          
        </Route>
        <Route path="/login" element={<Login></Login>}></Route>
