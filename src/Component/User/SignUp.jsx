@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
 import Footer from '../Sheare/Footer/Footer';
+import UseToken from '../hooks/UseToken';
 const SignUp = () => {
 
     const [createUserWithEmailAndPassword, user, loading, error] =
@@ -16,10 +17,10 @@ const SignUp = () => {
     handleSubmit,
   } = useForm();
     const navigate=useNavigate()
-
+    const [token]=UseToken(user || gUser)
     let location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  if (user) {
+  if (token) {
     navigate(from, { replace: true });
   }
   if (error || updatError) {

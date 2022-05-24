@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useEffect } from "react";
 
 import { useForm } from "react-hook-form";
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Footer from '../Sheare/Footer/Footer';
+import Footer from "../Sheare/Footer/Footer";
+import UseToken from "../hooks/UseToken";
+import Loading from "../Sheare/Loading/Loading";
 const Login = () => {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, emailUser, loading, error] =
     useSignInWithEmailAndPassword(auth);
-
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
-
+const [token] = UseToken(gUser || emailUser)
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
+
   if (user) {
     navigate(from, { replace: true });
   }
@@ -32,17 +39,21 @@ const Login = () => {
     );
   }
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
-  const onSubmit = (data) => {
-    signInWithEmailAndPassword(data.email, data.password);
-    console.log(data);
+  const onSubmit = async (data) => {
+    await signInWithEmailAndPassword(data.email, data.password);
+
+    // const {data} = await axios.post(`http://localhost:5000/login/${email}`);
+    // localStorage.setItem('accessToken', data.accessToken);
+    // navigate(from, { replace: true });
+    // console.log(data);
   };
-  
-    return (
-        <div>
-             <div className="card w-96 bg-base-100 shadow-xl mx-auto items-center h-max mt-28 mb-20">
+
+  return (
+    <div>
+      <div className="card w-96 bg-base-100 shadow-xl mx-auto items-center h-max mt-28 mb-20">
         <div className="card-body">
           <h2 className="text-center">Please Login</h2>
           <div>
@@ -123,19 +134,26 @@ const Login = () => {
             </form>
           </div>
           <p>
-            New to Doctors Portal? <Link className="text-red-500"  to="/singUp">Create new account</Link>
+            New to Doctors Portal?{" "}
+            <Link className="text-red-500" to="/singUp">
+              Create new account
+            </Link>
           </p>
           <div className="divider">OR</div>
-         
+
           <div className="mx-auto">
-            <button onClick={() => signInWithGoogle()} className="btn btn-outline ">CONTINUE WITH GOOGLE</button>
-           
+            <button
+              onClick={() => signInWithGoogle()}
+              className="btn btn-outline "
+            >
+              CONTINUE WITH GOOGLE
+            </button>
           </div>
         </div>
       </div>
-      <Footer/>
-        </div>
-    );
+      <Footer />
+    </div>
+  );
 };
 
 export default Login;

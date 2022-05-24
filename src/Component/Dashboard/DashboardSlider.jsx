@@ -20,6 +20,7 @@ const DashboardSlider = ({children}) => {
       <li><Link to='/dashboard/myOrder'>My Order</Link></li>
       <li><Link to='/dashboard/addedReview'>Added Review</Link></li>
       <li><Link to='/dashboard/addProduct'>Added Product</Link></li>
+      <li><Link to='/dashboard/myAddedItems'>My Added Items</Link></li>
      
     </ul>
   

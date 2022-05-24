@@ -15,9 +15,11 @@ import MyOrder from './Component/Dashboard/MyOrder';
 import AddedReview from './Component/Dashboard/AddedReview';
 import AddProduct from './Component/Dashboard/AddProduct';
 import ManageItems from './Component/ManageItems/ManageItems';
-import Parces from './Component/Purchase/Purchase';
+import Purchase from './Component/Purchase/Purchase';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import RequireAuth from './Component/Sheare/RequireAuth/RequireAuth';
+import MyAddedItems from './Component/Dashboard/MyAddedItems';
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
      <Header>
      <Routes>
        <Route path="/" element={<Home></Home>}></Route>
-       <Route path="/purchase/:Id" element={<Parces></Parces>}></Route>
+       <Route path="/purchase/:Id" element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
        <Route path="/about" element={<About></About>}></Route>
        <Route path="/myBlog" element={<MyBlog></MyBlog>}></Route>
        <Route path="/manageItems" element={<ManageItems/>}></Route>
@@ -35,6 +37,7 @@ function App() {
          <Route path="myOrder" element={<MyOrder></MyOrder>}></Route>
          <Route path="addedReview" element={<AddedReview/>}></Route>
          <Route path="addProduct" element={<AddProduct/>}></Route>
+         <Route path="myAddedItems" element={<MyAddedItems/>}></Route>
          
        </Route>
        <Route path="/login" element={<Login></Login>}></Route>

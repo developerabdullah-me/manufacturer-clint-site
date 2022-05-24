@@ -28,9 +28,10 @@ const AddProduct = () => {
           const img = result.data.url;
           const perse={
             name:data.name,
-            email:data.email,
+            email:data?.email,
             price:data.price,
-            quantity:data.quantity,
+            minimumQuantity:data.minimumQuantity,
+            maximumQuantity:data.maximumQuantity,
             description:data.description,
             img:img
           }
@@ -107,7 +108,7 @@ const AddProduct = () => {
                     type="email"
                     placeholder="email"
                     name="email"
-                    value={user.email}
+                    value={user?.email}
                     className="input input-bordered w-full max-w-xs"
                     {...register("email", {
                       required: {
@@ -170,34 +171,68 @@ const AddProduct = () => {
 
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Quantity</span>
+                    <span className="label-text"> Minimum Quantity</span>
                   </label>
                   <input
                     type="number"
-                    placeholder="Quantity"
-                    name="quantity"
+                    placeholder="minimumQuantity"
+                    name="minimumQuantity"
                     className="input input-bordered w-full max-w-xs"
-                    {...register(`quantity`, {
+                    {...register(`minimumQuantity`, {
                       required: {
                         value: true,
-                        message: "quantity is required",
+                        message: "minimumQuantity is required",
                       },
                       pattern: {
                         value: /[0-9]/,
-                        message: "your quantity is not required",
+                        message: "your minimumQuantity is not required",
                       },
                     })}
                   />
 
                   <label className="label">
-                    {errors.quantity?.type === "required" && (
+                    {errors.minimumQuantity?.type === "required" && (
                       <span className="label-text-alt text-red-500">
-                        {errors.quantity.message}
+                        {errors.minimumQuantity.message}
                       </span>
                     )}
-                    {errors.quantity?.type === "pattern" && (
+                    {errors.minimumQuantity?.type === "pattern" && (
                       <span className="label-text-alt text-red-500">
-                        {errors.quantity.message}
+                        {errors.minimumQuantity.message}
+                      </span>
+                    )}
+                  </label>
+                </div>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text"> Maximum Quantity</span>
+                  </label>
+                  <input
+                    type="number"
+                    placeholder="Maximum Quantity"
+                    name="maximumQuantity"
+                    className="input input-bordered w-full max-w-xs"
+                    {...register(`maximumQuantity`, {
+                      required: {
+                        value: true,
+                        message: "maximumQuantity is required",
+                      },
+                      pattern: {
+                        value: /[0-9]/,
+                        message: "your maximumQuantity is not required",
+                      },
+                    })}
+                  />
+
+                  <label className="label">
+                    {errors.maximumQuantity?.type === "required" && (
+                      <span className="label-text-alt text-red-500">
+                        {errors.maximumQuantity.message}
+                      </span>
+                    )}
+                    {errors.maximumQuantity?.type === "pattern" && (
+                      <span className="label-text-alt text-red-500">
+                        {errors.maximumQuantity.message}
                       </span>
                     )}
                   </label>
