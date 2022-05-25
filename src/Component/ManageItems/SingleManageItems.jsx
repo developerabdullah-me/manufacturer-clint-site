@@ -21,7 +21,7 @@ const SingleManageItems = (props) => {
        <div>
        <img className='w-56 h-56 mx-auto' src={img} alt="" />
        <h1 className='font-bold text-2xl'>{name}</h1>
-       <p className=' '>{description?.slice(0,100)}...</p>
+       <p className='pb-3 '>{description?.slice(0,100)}...</p>
        <p className='font-bold '>Minimum Quantity: <span className='text-red-500'>{newQuantity}</span></p>
        <p className='font-bold '>Maximum Quantity:<span className='text-red-500'>{maximumQuantiti}</span></p>
        <p className='font-bold '>price : ${price}</p>

@@ -38,7 +38,7 @@ const AddProduct = () => {
 
           // send to database
           // const url=`http://localhost:5000/pareses`
-          fetch('http://localhost:5000/pareses', {
+         fetch('http://localhost:5000/pareses', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,11 +48,7 @@ const AddProduct = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        toast.success('Success',data)
-
-          })
-
-        }
+        toast.success('Success',data)}) }
         console.log(result);
        toast.success('Success',data)
       });

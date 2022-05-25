@@ -15,17 +15,6 @@ const Allurer = () => {
     }
    
 
-    // console.log();
-
-    // const [users, setUsers] = useState([])
-    // useEffect(() => {
-    //     // console.log(user.email);
-
-    //     fetch('http://localhost:5000/users')
-    //         .then(res => res.json())
-    //         .then(data => setUsers(data))
-
-    // }, [users])
     return (
         <div className='w-full  p-20'>
             <div class="">

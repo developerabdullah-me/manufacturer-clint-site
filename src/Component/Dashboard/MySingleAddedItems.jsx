@@ -9,7 +9,7 @@ const MySingleAddedItems = (props) => {
            <div>
        <img className='w-40 h-40  mx-auto' src={img} alt="" />
        <h1 className='font-bold text-2xl'>{name}</h1>
-       <p className=' '>{description?.slice(0,100)}...</p>
+       <p className='pb-3 '>{description?.slice(0,100)}...</p>
        <p className='font-bold '>Minimum Quantity: <span className='text-red-500'>{minimumQuantity}</span></p>
        <p className='font-bold '>Maximum Quantity:<span className='text-red-500'>{maximumQuantity}</span></p>
        <p className='font-bold '>price : ${price}</p>
