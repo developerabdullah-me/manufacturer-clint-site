@@ -34,14 +34,36 @@ const Header = ({ children }) => {
       <li>
         <Link to="MyPortfolio">My Portfolio</Link>
       </li>
-      <li>
-        <Link to="dashboard">Dashboard</Link>
-      </li>
+
       <li>
         {user ? (
-          <button onClick={logout} className="btn btn-active btn-ghost">
-            SignOut
-          </button>
+          <div>
+            <div class="dropdown dropdown-end">
+              <label tabindex="0" class="p-0  mt-1">
+                {user?.photoURL ? (
+                  <img class="w-11 rounded-full cursor-pointer" src={user?.photoURL} alt="i" />
+                ) : (
+                  <h1 class="text-2xl font-bold  rounded-full px-3 py-1 outline">
+                    {user?.displayName.slice(0, 1)}{" "}
+                  </h1>
+                )}
+              </label>
+              <ul
+                tabindex="0"
+                class="dropdown-content menu p-2 shadow  rounded-box "
+              >
+                <li>
+                  {" "}
+                  <button onClick={logout} className="btn btn-active btn-ghost">
+                    SignOut
+                  </button>
+                </li>
+                <li>
+                  <Link to="dashboard">Dashboard</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         ) : (
           <Link to="login">Login</Link>
         )}
@@ -73,7 +95,7 @@ const Header = ({ children }) => {
             </div>
 
             <Link to="/" className="flex-1 px-2 mx-2">
-              Navbar Title
+              Parse_Go
             </Link>
             <div className="flex-none lg:hidden">
               <label for="my-drawer-3" className="btn btn-square btn-ghost">

@@ -35,7 +35,7 @@ const MyOrder = () => {
   }, [user]);
 
   const productDeleteHandle = (id) => {
-    const proceed = window.confirm("Are you sure?");
+    const proceed = window.confirm("Are you sure cancel order?");
 
     if (proceed) {
       const url = `http://localhost:5000/order/${id}`;
@@ -45,43 +45,40 @@ const MyOrder = () => {
         .then((res) => res.json())
         .then((data) => {
           const remaining = items.filter(
-            (InventoryItems) => InventoryItems._id !== id
+            (OrderItems) => OrderItems._id !== id
           );
           setItems(remaining);
         });
     }
   };
 
-
   return (
     <div className="w-full h-full">
       <h1>my order {items.length}</h1>
 
       <div class="overflow-x-auto">
-                <table class="table table-zebra w-full">
-                    <thead>
-                        <tr>
-                            {/* <th>SL</th> */}
-                            <th className='text-xl font-bold'>Details</th>
-                            
-                            <th className='text-xl font-bold'>Payment</th>
-                            <th className='text-xl font-bold'>cancel</th>
-                            
-                        </tr>
-                    </thead>
+        <table class="table table-zebra w-full">
+          <thead>
+            <tr>
+              {/* <th>SL</th> */}
+              <th className="text-xl font-bold">Details</th>
 
-                    <tbody>
-                        {
-                        items?.map(user => <SingleMyOrder
-                        key={user._id}
-                        user={user}
-                        productDeleteHandle={productDeleteHandle}
-                        ></SingleMyOrder>)
-                        }
-                    </tbody>
-                </table>
-            </div>
+              <th className="text-xl font-bold">Payment</th>
+              <th className="text-xl font-bold">cancel</th>
+            </tr>
+          </thead>
 
+          <tbody>
+            {items?.map((user) => (
+              <SingleMyOrder
+                key={user._id}
+                user={user}
+                productDeleteHandle={productDeleteHandle}
+              ></SingleMyOrder>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

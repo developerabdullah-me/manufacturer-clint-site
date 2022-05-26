@@ -20,22 +20,17 @@ const Purchase = () => {
     getValues,
   } = useForm();
 
-
-  
-  
   const handelorder = (data) => {
-
-
     const OrderProduct = {
       email: data?.email,
       name: product?.name,
       img: product?.img,
-      price:data?.customerQuantity * parseInt(price),
+      price: data?.customerQuantity * parseInt(price),
       orderQuantity: data?.customerQuantity,
       phoneNumber: data.phoneNumber,
       address: data.address,
     };
-console.log(OrderProduct);
+    console.log(OrderProduct);
     fetch("http://localhost:5000/order", {
       method: "POST",
       headers: {
@@ -49,7 +44,6 @@ console.log(OrderProduct);
         console.log(placeOrder);
         if (placeOrder.insertedId) {
           toast.success("Your order added successfully");
-         
         } else {
           toast.error("Faild to add your order. Please try again.");
         }

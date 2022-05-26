@@ -22,6 +22,8 @@ import RequireAuth from './Component/Sheare/RequireAuth/RequireAuth';
 import MyAddedItems from './Component/Dashboard/MyAddedItems';
 import UpdateProfile from './Component/Dashboard/UpdateProfile';
 import Allurer from './Component/Dashboard/Addmin/Allurer';
+import PayMent from './Component/Dashboard/PayMent/PayMent';
+
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
      <Header>
      <Routes>
         <Route path="/" element={<Home></Home>}></Route>
+       
         <Route path="/purchase/:Id" element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/myBlog" element={<MyBlog></MyBlog>}></Route>
@@ -43,6 +46,7 @@ function App() {
          <Route path="addProduct" element={<AddProduct/>}></Route>
          <Route path="myAddedItems" element={<MyAddedItems/>}></Route>
          <Route path="allUser" element={<Allurer></Allurer>}></Route>
+         <Route path="payMent/:Id" element={<PayMent></PayMent>}></Route>
          
        </Route>
        <Route path="/login" element={<Login></Login>}></Route>

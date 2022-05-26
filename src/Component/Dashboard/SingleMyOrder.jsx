@@ -1,8 +1,14 @@
 import React from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const SingleMyOrder = (props) => {
   const { productDeleteHandle, user } = props;
+  const {Id}=useParams()
   const { name, img, address, price, orderQuantity, _id } = user;
+  const navigate=useNavigate()
+  const payMent=(id) => {
+    navigate(`/payMent/${_id}`)  
+}
   return (
     <div>
       <tr>
@@ -26,7 +32,7 @@ const SingleMyOrder = (props) => {
           </div>
         </td>
         <td>
-          <button class="btn btn-ghost btn-xs">payment</button>
+          <Link to={`/dashboard/payMent/${_id}`} class="btn btn-ghost btn-xs">payment</Link>
         </td>
         <th>
           <button

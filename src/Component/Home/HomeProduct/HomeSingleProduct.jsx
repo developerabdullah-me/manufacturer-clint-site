@@ -27,7 +27,7 @@ const HomeSingleProduct = (props) => {
             <p className='font-bold '>Maximum Quantity:<span className='text-red-500'>{maximumQuantiti}</span></p>
             <p className='font-bold '>price : ${price}</p>
             </div>
-          <div className='absolute bottom-5'>
+          <div className='absolute bottom-2'>
           <button onClick={() =>purchase(_id)} className="btn  rounded ">Add To pareses</button>
           </div>
         </div>
