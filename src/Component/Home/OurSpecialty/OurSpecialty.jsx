@@ -16,7 +16,7 @@ const OurSpecialty = () => {
         <div className="mt-16 px-16">
              <h1 className="text-4xl text-center">Best Products</h1>
              <p className="text-center py-1">This product is top  in the year {(new Date().getFullYear())}</p>
-          <div data-aos="fade-left">
+          <div >
       <Swiper
         slidesPerView={3}
         spaceBetween={30}

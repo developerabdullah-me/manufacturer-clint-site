@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { AiOutlineEdit } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { signOut } from "firebase/auth";
+import MySingleProfile from "./MySingleProfile";
 
 const MyProfile = () => {
   const [user] = useAuthState(auth);
-  const navigate = useNavigate()
-  console.log(user);
+  const [items, setItems] = useState([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const myAddedItems = async () => {
+      const email = user.email;
+      const url = `https://enigmatic-dawn-06088.herokuapp.com/myprofiles?email=${email}`;
+      // const url = `https://enigmatic-dawn-06088.herokuapp.com/pareses`;
+      try {
+        const { data } = await axios.get(url, {
+          headers: {
+            authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        });
+        setItems(data);
+      } catch (error) {
+        console.log(error.message);
+        if (error.response.status === 401 || error.response.status === 403) {
+          signOut(auth);
+          navigate("/login");
+        }
+      }
+    };
+    myAddedItems();
+  }, [user]);
+
+  
   return (
     <div className="h-full mt-14 w-full px-10">
-      <div class="mockup-window border bg-base-300">
+      <div className="mockup-window border bg-base-300">
         <div className="flex justify-between px-3 items-center mb-10 border-b-2 border-zinc-700 w-12/12">
           <h1 className="stat-title text-3xl px-3 font-bold "> My Profile</h1>
           <Link to='/updateProfile' className="btn">
@@ -18,21 +45,11 @@ const MyProfile = () => {
             Edit
           </Link>
         </div>
-        <div class="">
-          <div className="flex gap-28 px-5 py-5">
-            <div>
-              <img className="rounded-full" src={user?.photoURL} alt="" />
-              <div className="pt-3">
-                <button className=" btn rounded-full">Edit Profile</button>
-              </div>
-            </div>
-            <div className="">
-              <h1 className="py-3 font-semibold">Full Name</h1>
-              <h1 className="py-1 font-semibold">{user?.displayName}</h1>
-              <h1 className="py-3 font-semibold">Email Address</h1>
-              <h1 className="py-1 font-semibold">{user?.email}</h1>
-            </div>
-          </div>
+        <div className="">
+        {[...items]
+            .reverse()
+            .slice(0, 1).map((item) => <MySingleProfile item={item} key={item._id}></MySingleProfile>)
+          }
         </div>
       </div>
     </div>

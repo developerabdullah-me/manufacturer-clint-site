@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import ShowUser from './ShowUser';
 
 const Allurer = () => {
-    const { data, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data, isLoading, refetch } = useQuery('users', () => fetch('https://enigmatic-dawn-06088.herokuapp.com/users', {
         method: "GET",
         headers:{
             authorization : `Bearer ${localStorage.getItem('accessToken')}`
@@ -17,8 +17,8 @@ const Allurer = () => {
 
     return (
         <div className='w-full  p-20'>
-            <div class="">
-                <table class="table">
+            <div className="">
+                <table className="table">
                     <thead>
                         <tr>
                             {/* <th>SL</th> */}

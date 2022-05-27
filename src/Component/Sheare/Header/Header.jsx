@@ -38,19 +38,19 @@ const Header = ({ children }) => {
       <li>
         {user ? (
           <div>
-            <div class="dropdown dropdown-end">
-              <label tabindex="0" class="p-0  mt-1">
+            <div className="dropdown dropdown-end">
+              <label tabindex="0" className="p-0  mt-1">
                 {user?.photoURL ? (
-                  <img class="w-11 rounded-full cursor-pointer" src={user?.photoURL} alt="i" />
+                  <img className="w-11 rounded-full cursor-pointer" src={user?.photoURL} alt="i" />
                 ) : (
-                  <h1 class="text-2xl font-bold  rounded-full px-3 py-1 outline">
+                  <h1 className="text-2xl font-bold  rounded-full px-3 py-1 outline">
                     {user?.displayName.slice(0, 1)}{" "}
                   </h1>
                 )}
               </label>
               <ul
                 tabindex="0"
-                class="dropdown-content menu p-2 shadow  rounded-box "
+                className="dropdown-content menu p-2 shadow  rounded-box "
               >
                 <li>
                   {" "}

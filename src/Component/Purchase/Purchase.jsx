@@ -31,7 +31,7 @@ const Purchase = () => {
       address: data.address,
     };
     console.log(OrderProduct);
-    fetch("http://localhost:5000/order", {
+    fetch("https://enigmatic-dawn-06088.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -55,7 +55,7 @@ const Purchase = () => {
   //   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/purchaseProduct/${Id}`)
+    fetch(`https://enigmatic-dawn-06088.herokuapp.com/purchaseProduct/${Id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

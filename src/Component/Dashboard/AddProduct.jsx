@@ -37,8 +37,8 @@ const AddProduct = () => {
           }
 
           // send to database
-          // const url=`http://localhost:5000/pareses`
-         fetch('http://localhost:5000/pareses', {
+          // const url=`https://enigmatic-dawn-06088.herokuapp.com/pareses`
+         fetch('https://enigmatic-dawn-06088.herokuapp.com/pareses', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

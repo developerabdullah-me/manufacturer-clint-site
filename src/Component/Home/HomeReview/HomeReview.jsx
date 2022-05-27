@@ -5,24 +5,26 @@ const HomeReview = () => {
   const [reviews, setReview] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/review')
-      .then(res => res.json())
-      .then(data => setReview(data));
-  },[]);
+    fetch("https://enigmatic-dawn-06088.herokuapp.com/review")
+      .then((res) => res.json())
+      .then((data) => setReview(data));
+  }, []);
   return (
     <div>
-    
-                     <div class="mockup-window border bg-base-300">
-  <div class="flex justify-center px-4 py-16 bg-base-200">
-
-  { [...reviews].reverse().slice(0,6).map(review =><HomeSingleReview
-                     review={review}
-                    key={review._id}
-                     ></HomeSingleReview>)
-                     
-                     }
-  </div>
-</div>
+      <div className="mockup-window border mt-16">
+        <h1 className="border-b-2 pl-10 text-2xl font-bold">OUR CUSTOMER REVIEW</h1>
+        <div className="  md:px-28  py-16 grid md:grid-cols-3 sm:grid-cols-1 gap-7  ">
+          {[...reviews]
+            .reverse()
+            .slice(0, 6)
+            .map((review) => (
+              <HomeSingleReview
+                review={review}
+                key={review._id}
+              ></HomeSingleReview>
+            ))}
+        </div>
+      </div>
     </div>
   );
 };

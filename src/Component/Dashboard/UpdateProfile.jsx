@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 const UpdateProfile = () => {
     const [user] = useAuthState(auth);
-    const imageStorageKey = "05d4c3c8e214922ac75f1c1d5c5cb38e";
+    const imageStorageKey = "c55d76ad72c94c8e0b9077518c65d5ef";
     const {
       register,
       formState: { errors },
@@ -30,16 +30,16 @@ const UpdateProfile = () => {
             const perse={
               name:data.name,
               email:data?.email,
-              price:data.price,
+              pAddress:data.pAddress,
               phoneNumber:data.phoneNumber,
-              maximumQuantity:data.maximumQuantity,
+             
               description:data.description,
               img:img
             }
   
             // send to database
-            // const url=`http://localhost:5000/pareses`
-            fetch('http://localhost:5000/pareses', {
+            // const url=`https://enigmatic-dawn-06088.herokuapp.com/pareses`
+            fetch('https://enigmatic-dawn-06088.herokuapp.com/myprofiles', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -74,6 +74,7 @@ const UpdateProfile = () => {
                       type="name"
                       placeholder="name"
                       name="name"
+                      value={user.displayName}
                       className="input input-bordered w-full max-w-xs"
                       {...register("name", {
                         required: {
@@ -81,7 +82,7 @@ const UpdateProfile = () => {
                           message: "name is required",
                         },
                         pattern: {
-                          value: /[A-Za-z]{3}/,
+                          value: true,
                           message: "your name is not required",
                         },
                       })}
@@ -137,33 +138,33 @@ const UpdateProfile = () => {
   
                   <div className="form-control w-full max-w-xs">
                     <label className="label">
-                      <span className="label-text">Price</span>
+                      <span className="label-text">pAddress</span>
                     </label>
                     <input
-                      type="number"
-                      placeholder="price"
-                      name="price"
+                      type="text"
+                      placeholder="pAddress"
+                      name="pAddress"
                       className="input input-bordered w-full max-w-xs"
-                      {...register("price", {
+                      {...register("pAddress", {
                         required: {
                           value: true,
-                          message: "price is required",
+                          message: "pAddress is required",
                         },
                         pattern: {
-                          value: /[0-9]/,
-                          message: "your price is not required",
+                          value: true,
+                          message: "your pAddress is not required",
                         },
                       })}
                     />
                     <label className="label">
-                      {errors.price?.type === "required" && (
+                      {errors.pAddress?.type === "required" && (
                         <span className="label-text-alt text-red-500">
-                          {errors.price.message}
+                          {errors.pAddress.message}
                         </span>
                       )}
-                      {errors.price?.type === "pattern" && (
+                      {errors.pAddress?.type === "pattern" && (
                         <span className="label-text-alt text-red-500">
-                          {errors.price.message}
+                          {errors.pAddress.message}
                         </span>
                       )}
                     </label>
@@ -203,40 +204,7 @@ const UpdateProfile = () => {
                       )}
                     </label>
                   </div>
-                  <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                      <span className="label-text"> Maximum Quantity</span>
-                    </label>
-                    <input
-                      type="number"
-                      placeholder="Maximum Quantity"
-                      name="maximumQuantity"
-                      className="input input-bordered w-full max-w-xs"
-                      {...register(`maximumQuantity`, {
-                        required: {
-                          value: true,
-                          message: "maximumQuantity is required",
-                        },
-                        pattern: {
-                          value: /[0-9]/,
-                          message: "your maximumQuantity is not required",
-                        },
-                      })}
-                    />
-  
-                    <label className="label">
-                      {errors.maximumQuantity?.type === "required" && (
-                        <span className="label-text-alt text-red-500">
-                          {errors.maximumQuantity.message}
-                        </span>
-                      )}
-                      {errors.maximumQuantity?.type === "pattern" && (
-                        <span className="label-text-alt text-red-500">
-                          {errors.maximumQuantity.message}
-                        </span>
-                      )}
-                    </label>
-                  </div>
+             
   
                   <div className="form-control w-full max-w-xs">
                     <label className="label">
@@ -287,8 +255,8 @@ const UpdateProfile = () => {
                           message: "description is required",
                         },
                         minLength: {
-                          value: 30,
-                          message: "your description  must be 50 character",
+                          value: 20,
+                          message: "your description  must be 20 character",
                         },
                       })}
                     />

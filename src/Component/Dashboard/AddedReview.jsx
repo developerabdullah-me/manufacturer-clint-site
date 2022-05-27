@@ -6,15 +6,7 @@ import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import "./AddedReview.css";
 const AddedReview = () => {
-  // const {
-  //   register,
-  //   formState: { errors },
-  //   handleSubmit,
-  // } = useForm();
-
-  const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
-  // const onSubmit = async (data) => {};
+  
 
   const {
     register,
@@ -27,12 +19,13 @@ const AddedReview = () => {
 
   const handleAddReview = (data) => {
     const inputReview = {
-      name: data.name,
-      rating: data.rating,
+      
+      name:data?.name,
+      rating:data?.rating,
       review: data.review,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://enigmatic-dawn-06088.herokuapp.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -59,31 +52,76 @@ const AddedReview = () => {
           <h2 className="text-center">Welcome To My Added Review</h2>
           <div>
             <form onSubmit={handleSubmit(handleAddReview)}>
-              <div className="form-control flex">
-                {[...Array(5)].map((star, i) => {
-                  const ratingValue = i + 1;
-                  return (
-                    <label className="">
-                      <input
-                        type="radio"
-                        name="rating"
-                        value={ratingValue}
-                        onClick={() => setRating(ratingValue)}
-                      />
-                      <FaStar
-                        className="star"
-                        color={
-                          ratingValue < (hover || rating)
-                            ? "#ffc107"
-                            : "#e4e5e9"
-                        }
-                        oneMouseEnter={() => setHover(ratingValue)}
-                        onMouseLeave={() => setHover(null)}
-                      />
-                    </label>
-                  );
-                })}
-              </div>
+             
+            <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Rating</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="rating"
+                    name="rating"
+                    className="input input-bordered w-full max-w-xs"
+                    {...register("rating", {
+                      required: {
+                        value: true,
+                        message: "rating is required",
+                      },
+                      pattern: {
+                        value: /[0-9]/,
+                        message: "your rating is not required",
+                      },
+                    })}
+                  />
+                  <label className="label">
+                    {errors.rating?.type === "required" && (
+                      <span className="label-text-alt text-red-500">
+                        {errors.rating.message}
+                      </span>
+                    )}
+                    {errors.rating?.type === "pattern" && (
+                      <span className="label-text-alt text-red-500">
+                        {errors.rating.message}
+                      </span>
+                    )}
+                  </label>
+                </div>
+
+            <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="name"
+                    name="name"
+                    value={user?.displayName}
+                    className="input input-bordered w-full max-w-xs"
+                    {...register("name", {
+                      required: {
+                        value: true,
+                        message: "name is required",
+                      },
+                      pattern: {
+                        value: /[A-Za-z]{3}/,
+                        message: "your name is not required",
+                      },
+                    })}
+                  />
+                  <label className="label">
+                    {errors.name?.type === "required" && (
+                      <span className="label-text-alt text-red-500">
+                        {errors.name.message}
+                      </span>
+                    )}
+                    {errors.name?.type === "pattern" && (
+                      <span className="label-text-alt text-red-500">
+                        {errors.name.message}
+                      </span>
+                    )}
+                  </label>
+                </div>
+                
 
               <div className="form-control w-full max-w-xs">
                 <label className="label">
@@ -134,97 +172,3 @@ const AddedReview = () => {
 
 export default AddedReview;
 
-// import { useState } from "react";
-// import "./AddedReview.css";
-// import { FaStar } from "react-icons/fa";
-
-// const colors = {
-//     orange: "#FFBA5A",
-//     grey: "#a9a9a9"
-
-// };
-
-// function App() {
-//   const [currentValue, setCurrentValue] = useState(0);
-//   const [hoverValue, setHoverValue] = useState(undefined);
-//   const stars = Array(5).fill(0)
-
-//   const handleClick = value => {
-//     setCurrentValue(value)
-//   }
-
-//   const handleMouseOver = newHoverValue => {
-//     setHoverValue(newHoverValue)
-//   };
-
-//   const handleMouseLeave = () => {
-//     setHoverValue(undefined)
-//   }
-
-//   const clickable=()=>{
-//     console.log('clickable');
-//   }
-//   return (
-//     <div onChange={clickable} style={styles.container}>
-//       <h2> React Ratings </h2>
-//       <div style={styles.stars}>
-//         {stars.map((_, index) => {
-//           return (
-//             <FaStar
-//               key={index}
-//               size={24}
-//               onClick={() => handleClick(index + 1)}
-//               onMouseOver={() => handleMouseOver(index + 1)}
-//               onMouseLeave={handleMouseLeave}
-//               color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-//               style={{
-//                 marginRight: 10,
-//                 cursor: "pointer"
-//               }}
-//             />
-//           )
-//         })}
-//       </div>
-//       <textarea
-//         placeholder="What's your experience?"
-//         style={styles.textarea}
-//       />
-
-//       <button
-//         style={styles.button}
-//       >
-//         Submit
-//       </button>
-
-//     </div>
-//   );
-// };
-
-// const styles = {
-//   container: {
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "center"
-//   },
-//   stars: {
-//     display: "flex",
-//     flexDirection: "row",
-//   },
-//   textarea: {
-//     border: "1px solid #a9a9a9",
-//     borderRadius: 5,
-//     padding: 10,
-//     margin: "20px 0",
-//     minHeight: 100,
-//     width: 300
-//   },
-//   button: {
-//     border: "1px solid #a9a9a9",
-//     borderRadius: 5,
-//     width: 300,
-//     padding: 10,
-//   }
-
-// };
-
-// export default App;

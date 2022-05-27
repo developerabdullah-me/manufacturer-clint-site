@@ -14,7 +14,7 @@ const MyOrder = () => {
   useEffect(() => {
     const myOrder = async () => {
       const email = user.email;
-      const url = `http://localhost:5000/order?email=${email}`;
+      const url = `https://enigmatic-dawn-06088.herokuapp.com/order?email=${email}`;
 
       try {
         const { data } = await axios.get(url, {
@@ -38,7 +38,7 @@ const MyOrder = () => {
     const proceed = window.confirm("Are you sure cancel order?");
 
     if (proceed) {
-      const url = `http://localhost:5000/order/${id}`;
+      const url = `https://enigmatic-dawn-06088.herokuapp.com/order/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -56,8 +56,8 @@ const MyOrder = () => {
     <div className="w-full h-full">
       <h1>my order {items.length}</h1>
 
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full">
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-full">
           <thead>
             <tr>
               {/* <th>SL</th> */}

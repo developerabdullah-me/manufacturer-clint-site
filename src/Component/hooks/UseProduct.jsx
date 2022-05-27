@@ -4,7 +4,7 @@ const UseProduct=()=>{
     const [products,setproducts]=useState([])
     console.log(products);
     useEffect(()=>{
-        fetch('http://localhost:5000/pareses')
+        fetch('https://enigmatic-dawn-06088.herokuapp.com/pareses')
         .then(res=>res.json())
         .then(data=>setproducts(data))
     },[])

@@ -13,8 +13,8 @@ const MyAddedItems = () => {
   useEffect(() => {
     const myAddedItems = async () => {
       const email = user.email;
-      const url = `http://localhost:5000/myAddedItems?email=${email}`;
-      // const url = `http://localhost:5000/pareses`;
+      const url = `https://enigmatic-dawn-06088.herokuapp.com/myAddedItems?email=${email}`;
+      // const url = `https://enigmatic-dawn-06088.herokuapp.com/pareses`;
       try {
         const { data } = await axios.get(url, {
           headers: {
@@ -37,7 +37,7 @@ const MyAddedItems = () => {
     const proceed = window.confirm("Are you sure?");
 
     if (proceed) {
-      const url = `http://localhost:5000/pareses/${id}`;
+      const url = `https://enigmatic-dawn-06088.herokuapp.com/pareses/${id}`;
       fetch(url, {
         method: "DELETE",
       })
