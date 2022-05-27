@@ -1,5 +1,4 @@
-# live site link :
-
+# live site link :https://parsego.netlify.app/
 # heroku live site link : 
 
 
