@@ -36,7 +36,6 @@ const MyOrder = () => {
 
   const productDeleteHandle = (id) => {
     const proceed = window.confirm("Are you sure cancel order?");
-
     if (proceed) {
       const url = `https://enigmatic-dawn-06088.herokuapp.com/order/${id}`;
       fetch(url, {

@@ -3,7 +3,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
-
+import './Header.css'
 const Header = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
@@ -95,7 +95,12 @@ const Header = ({ children }) => {
             </div>
 
             <Link to="/" className="flex-1 px-2 mx-2">
-              Parse_Go
+             <div className="main">
+
+
+
+             Parse_Go
+             </div>
             </Link>
             <div className="flex-none lg:hidden">
               <label for="my-drawer-3" className="btn btn-square btn-ghost">
