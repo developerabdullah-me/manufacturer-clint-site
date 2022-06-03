@@ -1,0 +1,138 @@
+.custom-btn {
+    /* width: 130px; */
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+
+
+  /* 14 */
+.btn-14 {
+    background: rgb(255,151,0);
+    border: none;
+    z-index: 1;
+  }
+  .btn-14:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-color: #eaf818;
+    background-image: linear-gradient(315deg, #eaf818 0%, #f6fc9c 74%);
+    box-shadow:inset 2px 2px 2px 0px 
+    rgba(255,255,255,.5) 7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+   transition: all 0.3s ease;
+  }
+  .btn-14:hover {
+    color: #000;
+  }
+  .btn-14:hover:after {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+  }
+  .btn-14:active {
+    top: 2px;
+  }
+  
+
+  @property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
+  
+  :root {
+    --card1-height: 503px;
+    --card1-width: calc(var(--card1-height) / 1.5);
+  }
+  
+  
+  
+  .card1 {
+    background: #f6f7f9;
+    
+    width: var(--card1-width);
+    height: var(--card1-height);
+  
+    position: relative;
+    border-radius: 6px;
+ 
+    display: flex;
+    
+    color: black;
+    cursor: pointer;
+    font-family: cursive;     
+  }
+  
+  
+  
+  
+  .card1::before {
+    content: "";
+    width: 104%;
+    height: 102%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      position: absolute;
+      z-index: -1;
+      top: -1%;
+      left: -2%;
+      animation: spin 2.5s linear infinite;
+  }
+  
+  .card1::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card1-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card1-height) / 6));
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
+  
+  a {
+    color: #212534;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 2rem;
+  }

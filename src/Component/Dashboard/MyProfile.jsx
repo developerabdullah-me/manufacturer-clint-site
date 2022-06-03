@@ -15,7 +15,7 @@ const MyProfile = () => {
     const myAddedItems = async () => {
       const email = user.email;
       const url = `https://enigmatic-dawn-06088.herokuapp.com/myprofiles?email=${email}`;
-      // const url = `https://enigmatic-dawn-06088.herokuapp.com/pareses`;
+     
       try {
         const { data } = await axios.get(url, {
           headers: {

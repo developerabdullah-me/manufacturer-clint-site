@@ -1,22 +1,55 @@
-.main {
-        color: #fff;
-        font-size: 60px;
-        text-transform: uppercase;
-        font-weight: 700;
-        /* background: linear-gradient(to right, #33B7FF 10%, #BD23FF 50%, #FCFF33 60%); */
-        background: linear-gradient(to right, #FFD700, #7B68EE, #3498db, #2ecc71, #FFD700);
-        background-size: auto auto;
-        background-clip: border-box;
-        background-size: 200% auto;
-        background-clip: text;
-        text-fill-color:transparent;
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-        animation: textclip 1.5s linear infinite;
-        display: inline-block;
+.animation{
+  
+  
+    transform: translate(-50%,-50%);
+    font-size: 30px;    font-weight: bold;
+    text-align: center;
+    animation: animate 10s infinite linear;
+}
+@keyframes animate{
+    0%{
+        color: #55efc4;
     }
-    @keyframes textclip {
-        to{
-            background-position: 200% center;
-        }
+    7%{
+        color: #00b894;
     }
+    14%{
+        color: #81ecec;
+    }
+    21%{
+        color: #00cec9;
+    }
+    28%{
+        color: #74b9ff;
+    }
+    35%{
+        color: #0984e3;
+    }
+    42%{
+        color: #a29bfe;
+    }
+    49%{
+        color: #6c5ce7;
+    }
+    56%{
+        color: #ffeaa7;
+    }
+    63%{
+        color: #fdcb6e;
+    }
+    70%{
+        color: #ff7675;
+    }
+    80%{
+        color: #d63031;
+    }
+    87%{
+        color: #fd79a8;
+    }
+    94%{
+        color: #e84393;
+    }
+    100%{
+        color: #636e72;
+    }
+}

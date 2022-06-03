@@ -14,7 +14,10 @@ const OurSpecialty = () => {
     const [Products,setProducts]=UseProduct()
     return (
         <div className="mt-16 px-16">
-             <h1 className="text-4xl text-center">Best Products</h1>
+          <div className="a">
+          <h1 className="text-4xl text-center textAnimations">Best Products</h1>
+
+          </div>
              <p className="text-center py-1">This product is top  in the year {(new Date().getFullYear())}</p>
           <div >
       <Swiper

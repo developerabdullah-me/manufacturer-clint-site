@@ -38,7 +38,7 @@ const Header = ({ children }) => {
       <li>
         {user ? (
           <div>
-            <div className="dropdown dropdown-end">
+            <div className="dropdown dropdown-end mt-7">
               <label tabindex="0" className="p-0  mt-1">
                 {user?.photoURL ? (
                   <img className="w-11 rounded-full cursor-pointer" src={user?.photoURL} alt="i" />
@@ -95,12 +95,10 @@ const Header = ({ children }) => {
             </div>
 
             <Link to="/" className="flex-1 px-2 mx-2">
-             <div className="main">
 
-
-
-             Parse_Go
-             </div>
+            <div class="animation pl-28">
+       Parse_Go
+</div>
             </Link>
             <div className="flex-none lg:hidden">
               <label for="my-drawer-3" className="btn btn-square btn-ghost">
@@ -121,7 +119,7 @@ const Header = ({ children }) => {
             </div>
 
             <div className="flex-none hidden lg:block">
-              <ul className="menu menu-horizontal">{items}</ul>
+              <ul className="menu menu-horizontal mb-8">{items}</ul>
             </div>
           </div>
 
