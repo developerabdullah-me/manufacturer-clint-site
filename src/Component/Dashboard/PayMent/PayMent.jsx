@@ -11,7 +11,7 @@ const stripePromise = loadStripe(
 const PayMent = () => {
   const { Id } = useParams();
 
-  const url = ` https://enigmatic-dawn-06088.herokuapp.com/payment/${Id}`;
+  const url = ` https://parse-and-co.onrender.com/payment/${Id}`;
 
   const { data: product, isLoading } = useQuery(["payment", Id], () =>
     fetch(url, {

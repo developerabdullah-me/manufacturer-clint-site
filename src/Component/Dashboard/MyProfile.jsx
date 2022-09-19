@@ -14,7 +14,7 @@ const MyProfile = () => {
   useEffect(() => {
     const myAddedItems = async () => {
       const email = user.email;
-      const url = `https://enigmatic-dawn-06088.herokuapp.com/myprofiles?email=${email}`;
+      const url = `https://parse-and-co.onrender.com/myprofiles?email=${email}`;
      
       try {
         const { data } = await axios.get(url, {

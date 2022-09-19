@@ -18,17 +18,19 @@ const HomeSingleProduct = (props) => {
     }
     return (
         <div>
-             <div className="shadow-2xl px-3 py-2 w-80 h-[504px]  mx-auto relative card1">
-            <div>
-            <img className='w-56 h-56 mx-auto' src={img} alt="" />
-            <h1 className='font-bold text-xl pb-5'>{name}</h1>
+             <div className="bg-white border relative  shadow-lg p-5 rounded-lg rounded-tl-[90px] w-full max-w-[400px] h-[530px] mx-auto cursor-pointer hover:shadow-2xl transition">
+            <div className="">
+            <img className='mb-2 rounded-tl-[80px] h-[250px] ' src={img} alt="" />
+            <h1 className='text-xl font-semibold max-w-screen h-[50px]'>{name}</h1>
             <p className='pb-3 '>{description?.slice(0,100)}...</p>
+            <div className="flex gap-6 mb-3">
             <p className='font-bold '>Minimum Quantity: <span className='text-red-500'>{newQuantity}</span></p>
             <p className='font-bold '>Maximum Quantity:<span className='text-red-500'>{maximumQuantiti}</span></p>
+            </div>
             <p className='font-bold '>price : ${price}</p>
             </div>
-          <div className='absolute bottom-2'>
-          <button onClick={() =>purchase(_id)} className=" custom-btn btn-14 px-28 ">Add To pareses</button>
+          <div className='absolute bottom-2 mt-4'>
+          <button onClick={() =>purchase(_id)} className=" bg-[#060624] rounded font-bold text-white py-5 px-[120px] ">Add To pareses</button>
           </div>
         </div>
         </div>

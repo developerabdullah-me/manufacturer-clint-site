@@ -38,8 +38,8 @@ const UpdateProfile = () => {
             }
   
             // send to database
-            // const url=`https://enigmatic-dawn-06088.herokuapp.com/pareses`
-            fetch('https://enigmatic-dawn-06088.herokuapp.com/myprofiles', {
+            // const url=`https://parse-and-co.onrender.com/pareses`
+            fetch('https://parse-and-co.onrender.com/myprofiles', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

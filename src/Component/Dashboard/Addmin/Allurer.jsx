@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import ShowUser from './ShowUser';
 
 const Allurer = () => {
-    const { data, isLoading, refetch } = useQuery('users', () => fetch('https://enigmatic-dawn-06088.herokuapp.com/users', {
+    const { data, isLoading, refetch } = useQuery('users', () => fetch('https://parse-and-co.onrender.com/users', {
         method: "GET",
         headers:{
             authorization : `Bearer ${localStorage.getItem('accessToken')}`

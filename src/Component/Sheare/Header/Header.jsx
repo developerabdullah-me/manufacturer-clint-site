@@ -31,11 +31,16 @@ const Header = ({ children }) => {
       <li>
         <Link to="myBlog">My Blog</Link>
       </li>
+     
+
+      <li>
+                  <Link to="dashboard">Dashboard</Link>
+                </li>
+      <li>
       <li>
         <Link to="MyPortfolio">My Portfolio</Link>
       </li>
 
-      <li>
         {user ? (
           <div>
             <div className="dropdown dropdown-end mt-7">
@@ -58,9 +63,8 @@ const Header = ({ children }) => {
                     SignOut
                   </button>
                 </li>
-                <li>
-                  <Link to="dashboard">Dashboard</Link>
-                </li>
+                
+          
               </ul>
             </div>
           </div>
@@ -73,9 +77,9 @@ const Header = ({ children }) => {
   return (
     <div className="">
       <div className="drawer drawer-end sticky-top">
-        <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+        <input id="my-drawer-3" type="checkbox" className="drawer-toggle " />
         <div className="drawer-content flex flex-col">
-          <div className="w-full navbar bg-base-300">
+          <div className="w-full navbar sticky-top bg-[#060624] text-white">
             <div className="flex-none lg:hidden">
               <label for="my-drawer-2" className="btn btn-square btn-ghost">
                 <svg

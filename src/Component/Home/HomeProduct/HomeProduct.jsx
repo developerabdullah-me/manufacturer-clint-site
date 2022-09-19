@@ -10,7 +10,7 @@ const HomeProduct = () => {
             <div className='text-center'>
                 <h1 className='animate-character'>Six items from the manage product</h1>
             </div>
-            <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-7 ">
+            <div className="grid grid-cols-1 p-4 lg:p-0 lg:grid-cols-3 gap-8 mt-10 mb-20">
             {
                     products.slice(0,6).map((product) =><HomeSingleProduct
                      product={product}

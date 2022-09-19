@@ -33,6 +33,9 @@ const SignUp = () => {
   if (loading || updating) {
     return <p className="text-center mt-36 text-primary">Loading...</p>;
   }
+  if (user || gUser) {
+    navigate('/')
+  }
 
   const onSubmit = async(data) => {
     await  createUserWithEmailAndPassword(data.email, data.password);

@@ -14,7 +14,7 @@ const MyOrder = () => {
   useEffect(() => {
     const myOrder = async () => {
       const email = user.email;
-      const url = `https://enigmatic-dawn-06088.herokuapp.com/order?email=${email}`;
+      const url = `https://parse-and-co.onrender.com/order?email=${email}`;
 
       try {
         const { data } = await axios.get(url, {
@@ -37,7 +37,7 @@ const MyOrder = () => {
   const productDeleteHandle = (id) => {
     const proceed = window.confirm("Are you sure cancel order?");
     if (proceed) {
-      const url = `https://enigmatic-dawn-06088.herokuapp.com/order/${id}`;
+      const url = `https://parse-and-co.onrender.com/order/${id}`;
       fetch(url, {
         method: "DELETE",
       })

@@ -25,7 +25,7 @@ const AddedReview = () => {
       review: data.review,
     };
 
-    fetch("https://enigmatic-dawn-06088.herokuapp.com/review", {
+    fetch("https://parse-and-co.onrender.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -138,7 +138,7 @@ const AddedReview = () => {
                       message: "yourReview is required",
                     },
                     minLength: {
-                      value: 20,
+                      value: /A-z/,
                       message: "your yourReview  must be 20 character",
                     },
                   })}

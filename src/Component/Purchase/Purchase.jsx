@@ -31,7 +31,7 @@ const Purchase = () => {
       address: data.address,
     };
     console.log(OrderProduct);
-    fetch("https://enigmatic-dawn-06088.herokuapp.com/order", {
+    fetch("https://parse-and-co.onrender.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -55,7 +55,7 @@ const Purchase = () => {
   //   };
 
   useEffect(() => {
-    fetch(`https://enigmatic-dawn-06088.herokuapp.com/purchaseProduct/${Id}`)
+    fetch(`https://parse-and-co.onrender.com/purchaseProduct/${Id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
