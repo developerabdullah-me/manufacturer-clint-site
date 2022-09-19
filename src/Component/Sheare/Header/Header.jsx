@@ -17,7 +17,7 @@ const Header = ({ children }) => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/manageItems">ManageItems</Link>
+        <Link to="/manageItems">ALL PRODUCTS</Link>
       </li>
       <li>
         <Link to="/myBlog">My Blog</Link>
@@ -37,10 +37,7 @@ const Header = ({ children }) => {
                   <Link to="dashboard">Dashboard</Link>
                 </li>
       <li>
-      <li>
-        <Link to="MyPortfolio">My Portfolio</Link>
-      </li>
-
+  
         {user ? (
           <div>
             <div className="dropdown dropdown-end mt-7">
@@ -48,7 +45,7 @@ const Header = ({ children }) => {
                 {user?.photoURL ? (
                   <img className="w-11 rounded-full cursor-pointer" src={user?.photoURL} alt="i" />
                 ) : (
-                  <h1 className="text-2xl font-bold  rounded-full px-3 py-1 outline">
+                  <h1 className="text-2xl font-bold cursor-pointer border border-2-white rounded-full px-3 py-1 outline-none">
                     {user?.displayName.slice(0, 1)}{" "}
                   </h1>
                 )}
@@ -59,7 +56,7 @@ const Header = ({ children }) => {
               >
                 <li>
                   {" "}
-                  <button onClick={logout} className="btn btn-active btn-ghost">
+                  <button onClick={logout} className=" mt-8 bg-[#060624] text-white ">
                     SignOut
                   </button>
                 </li>
@@ -78,8 +75,8 @@ const Header = ({ children }) => {
     <div className="">
       <div className="drawer drawer-end sticky-top">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle " />
-        <div className="drawer-content flex flex-col">
-          <div className="w-full navbar sticky-top bg-[#060624] text-white">
+        <div className="drawer-content  flex flex-col">
+          <div className="w-full navbar  sticky-top bg-[#060624] text-white">
             <div className="flex-none lg:hidden">
               <label for="my-drawer-2" className="btn btn-square btn-ghost">
                 <svg
@@ -100,7 +97,7 @@ const Header = ({ children }) => {
 
             <Link to="/" className="flex-1 px-2 mx-2">
 
-            <div class="animation pl-28">
+            <div class="text-3xl md:pl-28 pl-7 lg:pl-28">
        Parse_Go
 </div>
             </Link>

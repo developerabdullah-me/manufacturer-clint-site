@@ -16,21 +16,23 @@ const SingleManageItems = (props) => {
     }
 
     return (
-        <div>
-        <div className="shadow-2xl px-3 py-2 w-80 h-[504px]  mx-auto relative">
-       <div>
-       <img className='w-56 h-56 mx-auto' src={img} alt="" />
-       <h1 className='font-bold text-2xl'>{name}</h1>
-       <p className='pb-3 '>{description?.slice(0,100)}...</p>
-       <p className='font-bold '>Minimum Quantity: <span className='text-red-500'>{newQuantity}</span></p>
-       <p className='font-bold '>Maximum Quantity:<span className='text-red-500'>{maximumQuantiti}</span></p>
-       <p className='font-bold '>price : ${price}</p>
-       </div>
-     <div className='absolute bottom-5'>
-     <button onClick={() =>purchase(_id)} className="btn  rounded ">Add To pareses</button>
+      <div>
+      <div className="bg-white border relative  shadow-lg p-5 rounded-lg rounded-tl-[90px] w-full max-w-[400px] h-[620px] md:h-[530px] lg:h-[530px] mx-auto cursor-pointer hover:shadow-2xl transition">
+     <div className="">
+     <img className='mb-2 rounded-tl-[80px] h-[250px] ' src={img} alt="" />
+     <h1 className='text-xl font-semibold max-w-screen'>{name}</h1>
+     <p className='pb-3 '>{description?.slice(0,100)}...</p>
+     <div className="flex gap-6 mb-3">
+     <p className='font-bold '>Minimum Quantity: <span className='text-red-500'>{newQuantity}</span></p>
+     <p className='font-bold '>Maximum Quantity:<span className='text-red-500'>{maximumQuantiti}</span></p>
      </div>
+     <p className='font-bold '>price : ${price}</p>
+     </div>
+   <div className='absolute bottom-2 mt-4'>
+   <button onClick={() =>purchase(_id)} className=" bg-[#060624] rounded font-bold text-white py-5 px-11  md:px-[120px] ">Add To pareses</button>
    </div>
-   </div>
+ </div>
+ </div>
     );
 };
 
